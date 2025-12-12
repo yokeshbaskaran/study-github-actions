@@ -1,0 +1,48 @@
+name: Passing Variables
+
+on: 
+  workflow_dispatch:
+env:
+  WORKFLOW_VAR: WORKFLOW_SCOPED
+
+jobs:
+  
+  job-1:
+    runs-on: ubuntu-latest
+    env: 
+      JOB_VAR: JOB1_SCOPED
+    steps:
+      - name: Inspect scoped Job-1 step-1
+        env:
+          STEP_VAR:  STEPS_SCOPED
+        run: |
+          echo "WORKFLOW_VAR_ENV : $WORKFLOW_VAR"
+          echo "JOB_VAR_ENV : $JOB_VAR"
+          echo "STEP_VAR_ENV : $STEP_VAR"
+ 
+      - name: Inspect scoped Job-1 step-2
+        run: |
+          echo "WORKFLOW_VAR_ENV : $WORKFLOW_VAR"
+          echo "JOB_VAR_ENV : $JOB_VAR"
+          echo "STEP_VAR_ENV : $STEP_VAR"
+          echo "STEP_VAR_ENV : ${STEP_VAR:-<UNSET>}"
+ 
+  job-2:
+    runs-on: ubuntu-latest
+    env: 
+      JOB_VAR: JOB1_SCOPED
+    steps:
+      - name: Inspect scoped Job-2 step-2
+        env:
+          STEP_VAR:  STEPS_SCOPED
+        run: |
+          echo "WORKFLOW_VAR_ENV : $WORKFLOW_VAR"
+          echo "JOB_VAR_ENV1 : $JOB_VAR"
+          echo "STEP_VAR_ENV : $STEP_VAR"
+ 
+      - name: Inspect scoped Job-1 step-2
+        run: |
+          echo "WORKFLOW_VAR_ENV : $WORKFLOW_VAR"
+          echo "JOB_VAR_ENV : $JOB_VAR"
+          echo "STEP_VAR_ENV : $STEP_VAR"
+          echo "STEP_VAR_ENV : ${STEP_VAR:-<UNSET>}"
