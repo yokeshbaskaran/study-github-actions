@@ -1,0 +1,26 @@
+name: Needs with Jobs
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  jobs-1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Print -> JOB-1 done"
+
+  jobs-2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Print -> JOB-2 done"
+
+  jobs-3:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Print -> JOB-1 and JOB-2 are done now"
+
+  jobs-4:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "runs after job-2 and job-3 done"
+
