@@ -1,0 +1,12 @@
+name: Step Types
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-another-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/demo-github-actions@512f8ba4763c904e9ab8d6e5745d317026008569
+        with:
+          who-to-greet: "from action in another one!!"
