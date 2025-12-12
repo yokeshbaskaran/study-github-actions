@@ -5,13 +5,13 @@ on:
 
 jobs:
   print-hello-inline:
-    runs-on: ubuntu
+    runs-on: 	ubuntu-latest
 
     steps:
     - run: echo "Hi from terminal"
 
   print-hello-python:
-    runs-on: ubuntu
+    runs-on: 	ubuntu-22.04
 
     steps:
     - run: print("This is text from Python Shell")
