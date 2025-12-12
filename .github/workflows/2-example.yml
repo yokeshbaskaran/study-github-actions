@@ -1,0 +1,20 @@
+name: Step Types
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-hello-inline:
+    runs-on: ubuntu
+
+    steps:
+    - run: echo "Hi from terminal"
+
+  print-hello-python:
+    runs-on: ubuntu
+
+    steps:
+    - run: print("This is text from Python Shell")
+      shell: python
+
+ 
