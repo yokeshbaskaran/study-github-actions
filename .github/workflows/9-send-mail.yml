@@ -1,7 +1,6 @@
 name: Send Mail
 
-on:
-  workflow_dispatch:
+on: push
 
 jobs:
   mail:
