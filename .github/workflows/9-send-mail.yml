@@ -1,6 +1,6 @@
 name: Send Mail
 
-on: push
+on: pull_request
 
 jobs:
   mail:
@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Print Hello World
-        run: echo "Hello Yokii"
+        run: echo "Hello bro!"
 
       - name: Sending a mail
         if: ${{ always() }}
@@ -21,5 +21,5 @@ jobs:
 
           subject: ${{ github.job }} - job of ${{ github.repository }} - has - ${{ job.status }}
           body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          to: yokeshbaskaran@gmail.com, abcd@gmail.com
+          to: <mail>.com
           from: Mine <${{ secrets.USER_EMAIL }}>

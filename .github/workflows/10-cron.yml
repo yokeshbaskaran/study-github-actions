@@ -1,0 +1,21 @@
+name: Cron Job
+
+on:
+  schedule:
+    - cron: "* * * * *"
+
+jobs:
+  cronjob:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v3
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Run python
+        run: python hello.py
