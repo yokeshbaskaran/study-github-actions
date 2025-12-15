@@ -1,0 +1,11 @@
+name: Sample Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  first-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "First Steps: Display Hello"
+        run: echo "Hello! World"
