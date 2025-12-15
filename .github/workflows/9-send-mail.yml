@@ -1,0 +1,26 @@
+name: Send Mail
+
+on:
+  workflow_dispatch:
+
+jobs:
+  mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello World
+        run: echo "Hello Yokii"
+
+      - name: Sending a mail
+        if: ${{ always() }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.google.com
+          server_port: 465
+          username: ${{secrets.USER_EMAIL}}
+          password: ${{secrets.USER_PASSWORD}}
+
+          subject: ${{ github.job }} - job of ${{ github.repository }} - has - ${{ job.status }}
+          body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          to: yokeshbaskaran@gmail.com, abcd@gmail.com
+          from: Mine <${{ secrets.USER_EMAIL }}>
